@@ -1,6 +1,0 @@
-# ninja log v5
-0	55	1595708287798980506	matrixcode@exe/moc_matrixcode.cpp	c15c4a7c34cf7fb2
-0	1320	1595708289059980566	matrixcode@exe/main.cpp.obj	e389ab1ab97412ab
-55	1366	1595708289106980568	matrixcode@exe/meson-generated_moc_matrixcode.cpp.obj	6576a70e718af025
-0	1540	1595708289282980577	matrixcode@exe/matrixcode.cpp.obj	ee54d06862d96470
-1540	7612	1595708295347980866	matrixcode.exe	ad712c26fc3e37d7

@@ -12,7 +12,7 @@
 #include <random>
 #include <sstream>
 #include <vector>
-matrixcode::matrixcode() { matrixcode::inithisprogram();}
+matrixcode::matrixcode() { matrixcode::inithisprogram(); }
 matrixcode::~matrixcode() {}
 void matrixcode::initializeGL() {
   glViewport(0, 0, 800, 600);
@@ -41,34 +41,103 @@ void matrixcode::paintGL() {
 }
 void matrixcode::resizeEvent(QResizeEvent *e) {
 
-    if(e->Resize) {
-        auto aw = this->width();
-        auto ah = this->height();
-        matrixcode::resizeGL(aw,ah);
-    }
+  if (e->Resize) {
+    auto aw = this->width();
+    auto ah = this->height();
+    matrixcode::resizeGL(aw, ah);
+  }
 }
-void matrixcode::_processing() {}
+void matrixcode::_processing() {
+  // for (int i=0;i<) {
+  //auto aw = this->height();
+  // this->i=1;
+  // for (int i = 2; i < aw - 1; ++i) {
+  //   matrixcode::pp[i].x= 20*i;
+  //   // _draw();
+  // }
+  //}
+  this->y1++;
+}
 void matrixcode::_draw() {
+  auto aw = this->width();
+  auto ah = this->height();
+  int u = rand() % ah;
+  int h = aw;
+  // matrixcode::grid p[u];
+  qglColor(Qt::darkGreen);
+   //matrixcode::pp;
+   // for(int j=1; j< this->width()-1;++j){
+   // for (int i = 1; i < u - 1; ++i) {
+   //   matrixcode::pp[j][i].x = 20*j;
+   //   matrixcode::pp[j][i].y = 20 * i;
+   //   matrixcode::pp[j][i].ch = (QString)(rand() % 25 + 97);
+   // }
+   // }
+
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  static auto font = QFont("Terminus", 18);
+  //int u = rand() % this->height();
+  for(int j=1; j< ah-1;++j){
+   for (int i = 1; i < u - 1; ++i) {
+     matrixcode::pp[j][i].x = 20*j;
+     matrixcode::pp[j][i].y = 20 * i;
+     matrixcode::pp[j][i].ch = (QString)(rand() % 25 + 97);
+   }
+   }
+     static auto font = QFont("Terminus", 18);
   font.setStyleName("Terminus");
-  renderText(this->x1, this->y1, (QString)stringelement=rand()%25+97, font);
+  for(int j=1; j< ah-1;++j){
+  for (int i = 1; i < u - 1; ++i) {
+
+    renderText(matrixcode::pp[j][i].x, matrixcode::pp[j][i].y, matrixcode::pp[j][i].ch,
+               font);
+  }
+  }
+
+ 
+}
+void matrixcode::generate(int l) {
+  // auto ah = this->height();
+  // int u = rand() % ah;
+  // for (int i = 1; i < u - 1; ++i) {
+  //   matrixcode::pp[i].x = l;
+  //   matrixcode::pp[i].y = 20 * i;
+  //   matrixcode::pp[i].ch = (QString)(rand() % 25 + 97);
+  // }
+  // // static auto font = QFont("Terminus", 18);
+  // // font.setStyleName("Terminus");
+  // // for (int i = 1; i < u - 1; ++i) {
+
+  // //   renderText(matrixcode::pp[i].x, matrixcode::pp[i].y, matrixcode::pp[i].ch,
+  // //              font);
+  // // }
 }
 void matrixcode::keyReleaseEvent(QKeyEvent *e) {
-    if(e->key()==Qt::Key_Escape) close();
+  if (e->key() == Qt::Key_Escape)
+    close();
 }
 void matrixcode::inithisprogram() {
-    this->x1=20;
-    this->y1=20;
-    this->a.setHMS(0,0,0);
-    QTimer *tmr = new QTimer;
-    connect(tmr,SIGNAL(timeout()),this,SLOT(updateGL()));
-    tmr->start(32);
-    this->timerID=startTimer(32);
+  this->i = 1;
+  this->x1 = 20;
+  this->y1 = 20;
+  this->a.setHMS(0, 0, 0);
+  QTimer *tmr = new QTimer;
+  connect(tmr, SIGNAL(timeout()), this, SLOT(updateGL()));
+  tmr->start(32);
+  timerID = startTimer(32);
+  // int u = rand() % this->height();
+  // for(int j=1; j< this->width()-1;++j){
+  //  for (int i = 1; i < u - 1; ++i) {
+  //    matrixcode::pp[j][i].x = 20*j;
+  //    matrixcode::pp[j][i].y = 20 * i;
+  //    matrixcode::pp[j][i].ch = (QString)(rand() % 25 + 97);
+  //  }
+  //  }
 }
-void matrixcode::updatetime() {
-    this->a=this->a.addSecs(1);
-}
-void matrixcode::timerEvent(QTimerEvent *e){
-
+void matrixcode::updatetime() { this->a = this->a.addSecs(1); }
+void matrixcode::timerEvent(QTimerEvent *e) {
+  this->second++;
+  updatetime();
+  if (this->second % 150 == 0) {
+    this->stringelement = rand() % 25 + 97;
+  }
 }

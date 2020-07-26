@@ -4,4 +4,6 @@ qt5_dep = dependency('qt5', modules: ['Core', 'Gui', 'Widgets', 'OpenGL'])
 gl_dep = dependency('GL')
 moc_files = qt5.preprocess(moc_headers : 'matrixcode.hpp',
                                        dependencies : [qt5_dep, gl_dep])
-executable('matrixcode','main.cpp', 'matrixcode.cpp', moc_files, dependencies : [qt5_dep, gl_dep])
+
+
+executable('matrixcode','main.cpp', 'matrixcode.cpp', moc_files,dependencies : [qt5_dep, gl_dep ])

@@ -1,4 +1,4 @@
-Build started at 2020-07-25T16:42:59.769963
+Build started at 2020-07-26T17:21:30.342947
 Main binary: /usr/bin/python3.7
 Build Options: -Dbackend=ninja
 Python system: Linux
@@ -48,8 +48,8 @@ Called `/usr/bin/pkg-config Qt5Core --libs` -> 0
 -lQt5Core
 None of 'PKG_CONFIG_PATH' are defined in the environment, not changing global flags.
 Running compile:
-Working directory:  /home/jimmy/dev/matrixcode/bbuild/meson-private/tmp3vbjz26b
-Command line:  c++ /home/jimmy/dev/matrixcode/bbuild/meson-private/tmp3vbjz26b/testfile.cpp -o /home/jimmy/dev/matrixcode/bbuild/meson-private/tmp3vbjz26b/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive -Wl,--start-group -lQt5Core -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /home/jimmy/dev/matrixcode/bbuild/meson-private/tmpt9itfhgh
+Command line:  c++ /home/jimmy/dev/matrixcode/bbuild/meson-private/tmpt9itfhgh/testfile.cpp -o /home/jimmy/dev/matrixcode/bbuild/meson-private/tmpt9itfhgh/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive -Wl,--start-group -lQt5Core -Wl,--end-group -Wl,--allow-shlib-undefined 
 
 Code:
  int main(void) { return 0; }
@@ -69,8 +69,8 @@ Build targets in project: 1
 
 Found ninja-1.9.0.git.kitware.dyndep-1.jobserver-1 at /usr/bin/ninja
 Running compile:
-Working directory:  /tmp/tmpl50ns59c
-Command line:  c++ /tmp/tmpl50ns59c/testfile.cpp -o /tmp/tmpl50ns59c/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++17 
+Working directory:  /tmp/tmp1vrd35aa
+Command line:  c++ /tmp/tmp1vrd35aa/testfile.cpp -o /tmp/tmp1vrd35aa/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++17 
 
 Code:
  int i = static_cast<int>(0);
@@ -80,8 +80,8 @@ Compiler stderr:
  
 Compiler accepts -std=c++17: YES
 Running compile:
-Working directory:  /home/jimmy/dev/matrixcode/bbuild/meson-private/tmp87flyl2y
-Command line:  c++ /home/jimmy/dev/matrixcode/bbuild/meson-private/tmp87flyl2y/testfile.cpp -o /home/jimmy/dev/matrixcode/bbuild/meson-private/tmp87flyl2y/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+Working directory:  /home/jimmy/dev/matrixcode/bbuild/meson-private/tmppxsbm0zq
+Command line:  c++ /home/jimmy/dev/matrixcode/bbuild/meson-private/tmppxsbm0zq/testfile.cpp -o /home/jimmy/dev/matrixcode/bbuild/meson-private/tmppxsbm0zq/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
 
 Code:
  

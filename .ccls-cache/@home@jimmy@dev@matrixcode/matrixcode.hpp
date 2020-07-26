@@ -14,13 +14,15 @@ public:
   const static int W = 80;
   const static int H = 30;
   struct grid {
-    grid(char ach = ' ', int alive = 0) : x(0), y(0), ch(ach), live(alive) {}
+    //grid(char ach = ' ', int alive = 0) : x(0), y(0), ch(ach), live(alive) {}
     int x;
     int y;
     QString ch;
-    int live;
+    //int live;
   };
-  std::list<QString> *p;
+
+    grid pp[800][600];
+ // std::list<QString> p;
   grid scren[W][H];
   int i = 0;
   int second = 0;
@@ -38,6 +40,7 @@ public:
   int y1 = 0;
   QTime a;
   //QTimer *tmr;
+  void generate(int);
 
 private slots:
   void updatetime();
