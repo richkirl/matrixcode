@@ -38,52 +38,29 @@ void matrixcode::paintGL() {
   _processing();
   _draw();
 }
-void matrixcode::resizeEvent(QResizeEvent *e) {
-  }
-void matrixcode::_processing() {
-  this->y1++;
-}
+void matrixcode::resizeEvent(QResizeEvent *e) {}
+void matrixcode::_processing() { this->y1++; }
 void matrixcode::_draw() {
   auto aw = this->width();
   auto ah = this->height();
-  int u = rand() % ah;
-  int h = rand()% aw;
+  int u = ah / 20;
+  int h = aw / 20;
   qglColor(Qt::darkGreen);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-  //for(int j=1; j< h-1;++j){
-  //aw/20(800/20)
-  for (int g=0; g < 40; ++g) {
+  for (int g = 0; g < h; ++g) {
+    for (int i = 1; i < u; ++i) {
+      matrixcode::pp[i].x = 20 * g;
+      matrixcode::pp[i].y = 20 * i;
+      matrixcode::pp[i].ch = (QString)(rand() % 25 + 97);
+    }
+    static auto font = QFont("Terminus", 18);
+    font.setStyleName("Terminus");
+    for (int i = 1; i < u; ++i) {
 
-
-   for (int i = 1; i < u - 1; ++i) {
-     matrixcode::pp[i].x = 20*g;
-     matrixcode::pp[i].y = 20 * i;
-     //matrixcode::pp[j][i].ch=(QString)this->stringelement;
-     matrixcode::pp[i].ch = (QString)(rand() % 25 + 97);
-   }
-   //}
-     static auto font = QFont("Terminus", 18);
-  font.setStyleName("Terminus");
- // for(int j=1; j< h-1;++j){
-  for (int i = 1; i < u - 1; ++i) {
-
-    renderText(matrixcode::pp[i].x, matrixcode::pp[i].y, matrixcode::pp[i].ch,
-               font);
+      renderText(matrixcode::pp[i].x, matrixcode::pp[i].y, matrixcode::pp[i].ch,
+                 font);
+    }
   }
-  }
-  // for (int i = 1; i < u - 1; ++i) {
-  //    matrixcode::pp[i].x = 40;
-  //    matrixcode::pp[i].y = 20 * i;
-  //    //matrixcode::pp[j][i].ch=(QString)this->stringelement;
-  //    matrixcode::pp[i].ch = (QString)(rand() % 25 + 97);
-  // }
-  // for (int i = 1; i < u - 1; ++i) {
-
-  //   renderText(matrixcode::pp[i].x, matrixcode::pp[i].y, matrixcode::pp[i].ch,
-  //              font);
-  // }
-
-  //}
 }
 void matrixcode::generate(int l) {}
 void matrixcode::keyReleaseEvent(QKeyEvent *e) {
