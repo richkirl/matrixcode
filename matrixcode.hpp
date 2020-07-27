@@ -21,7 +21,7 @@ public:
     //int live;
   };
 
-    grid pp[800][600];
+    grid pp[600];
  // std::list<QString> p;
   grid scren[W][H];
   int i = 0;
