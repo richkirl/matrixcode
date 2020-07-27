@@ -39,7 +39,7 @@ void matrixcode::paintGL() {
   _draw();
 }
 void matrixcode::resizeEvent(QResizeEvent *e) {}
-void matrixcode::_processing() { this->y1++; }
+void matrixcode::_processing() {}
 void matrixcode::_draw() {
   auto aw = this->width();
   auto ah = this->height();
@@ -56,7 +56,6 @@ void matrixcode::_draw() {
     static auto font = QFont("Terminus", 18);
     font.setStyleName("Terminus");
     for (int i = 1; i < u; ++i) {
-
       renderText(matrixcode::pp[i].x, matrixcode::pp[i].y, matrixcode::pp[i].ch,
                  font);
     }
@@ -69,8 +68,6 @@ void matrixcode::keyReleaseEvent(QKeyEvent *e) {
 }
 void matrixcode::inithisprogram() {
   this->i = 1;
-  this->x1 = 20;
-  this->y1 = 20;
   this->a.setHMS(0, 0, 0);
   QTimer *tmr = new QTimer;
   connect(tmr, SIGNAL(timeout()), this, SLOT(updateGL()));
