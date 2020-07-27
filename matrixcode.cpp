@@ -24,6 +24,7 @@ void matrixcode::initializeGL() {
   glEnable(GL_LINE_SMOOTH);
   glEnable(GL_POINT_SMOOTH);
   glEnable(GL_SMOOTH);
+  glEnable(GL_COLOR_MATERIAL);
 }
 void matrixcode::resizeGL(int aw, int ah) {
   glViewport(0, 0, (GLint)aw, (GLint)ah);
@@ -37,15 +38,15 @@ void matrixcode::paintGL() {
   qglClearColor(Qt::black);
   _processing();
   _draw();
+  _rain();
 }
 void matrixcode::resizeEvent(QResizeEvent *e) {}
-void matrixcode::_processing() {}
+void matrixcode::_processing() {this->y1++;}
 void matrixcode::_draw() {
   auto aw = this->width();
   auto ah = this->height();
   int u = ah / 20;
   int h = aw / 20;
-  qglColor(Qt::darkGreen);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   for (int g = 0; g < h; ++g) {
     for (int i = 1; i < u; ++i) {
@@ -56,10 +57,39 @@ void matrixcode::_draw() {
     static auto font = QFont("Terminus", 18);
     font.setStyleName("Terminus");
     for (int i = 1; i < u; ++i) {
+      //glClear(GL_COLOR_BUFFER_BIT );
+      glRasterPos2i(h * 20, u * 20);
+      glColor3f(0, 0.5, 0);
+      //glColor4i(1, 1, 1,1);
       renderText(matrixcode::pp[i].x, matrixcode::pp[i].y, matrixcode::pp[i].ch,
                  font);
     }
   }
+  int k = rand() % aw / 20;
+
+  for (int i = 0; i < u; ++i) {
+  }
+}
+void matrixcode::_rain() {
+  // auto aw = this->width() / 20;
+  // auto ah = this->height() / 20;
+  // int k = rand() % aw / 20;
+  // int i=0;
+  // while (i<k) {
+  //   i++;
+  //   if (i==k) {
+  //     for(int g=0;g<ah;++g){
+  //     glColor3f(1, 1, 1);
+  //     glRasterPos2i(i * 20, ah * 20);
+  //     QString s=(QString)(rand()%25+97);
+  //     static auto font = QFont("Terminus", 18);
+  //           renderText(this->x1, this->y1,s,
+  //                font);
+     
+  //     }
+  //   }
+  // }
+
 }
 void matrixcode::generate(int l) {}
 void matrixcode::keyReleaseEvent(QKeyEvent *e) {
@@ -69,6 +99,8 @@ void matrixcode::keyReleaseEvent(QKeyEvent *e) {
 void matrixcode::inithisprogram() {
   this->i = 1;
   this->a.setHMS(0, 0, 0);
+  this->x1=20;
+  this->y1=20;
   QTimer *tmr = new QTimer;
   connect(tmr, SIGNAL(timeout()), this, SLOT(updateGL()));
   tmr->start(32);
@@ -79,6 +111,7 @@ void matrixcode::timerEvent(QTimerEvent *e) {
   this->second++;
   updatetime();
   if (this->second % 15 == 0) {
-    this->stringelement = rand() % 25 + 97;
+   // this->stringelement = rand() % 25 + 97;
+    //matrixcode::_rain();
   }
 }

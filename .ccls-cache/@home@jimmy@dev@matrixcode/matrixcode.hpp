@@ -24,9 +24,12 @@ public:
   int stringelement;
   matrixcode();
   ~matrixcode();
-  QTime a;
+    QTime a;
+    int x1=20;
+    int y1=20;
   // QTimer *tmr;
   void generate(int);
+  void _rain();
 
 private slots:
   void updatetime();
